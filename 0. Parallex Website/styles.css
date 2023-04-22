@@ -1,0 +1,105 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#wrapper {
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    perspective: 10px;          /*to turn on the 3d */
+    font-family: 'Poppins', sans-serif;
+}
+
+.container {
+    height: 100%;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transform-style: preserve-3d;
+    /*IT should be always used when we want in 3d */
+    z-index: -1 ;
+    /*it is for overlapping */
+}
+
+.background {
+    transform: translateZ(-40px) scale(5.1);
+    /*It is used to make the image look far from us*/
+}
+
+.foreground {
+    transform: translateZ(-20px) scale(3);
+    /* translate z is used to send the image far from us and scale is used to increase the size of that image*/
+
+}
+
+.background,
+.foreground {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    z-index: -1;
+    /*by this the adventure header comes on top*/
+    object-fit: cover;
+    /* It covers the whole image in the container */
+}
+
+h1 {
+    position: absolute;
+    font-size: 10rem;
+    letter-spacing: 4px;
+    top: 5rem;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+section{
+    background-color: rgb(45,45,45);
+    color: white;
+    padding: 5rem 0;
+}
+
+.secHeading{
+    font-size: 5rem;
+    padding: 0 10rem;
+}
+
+.text{
+    font-size: 1.5rem;
+    padding: 0 10rem;
+    margin: 5rem 0;
+}
+.desc{
+    position: absolute;
+    /* width: fit-content; */
+    background-color: white;
+    color: black;
+    padding: 0.5rem 2.5rem;
+    /*we have not used flex so we need to tell from how much we need to bring the heading from top, bottom,r, l ...  */
+    top: 50%;
+    left: 40%;
+    font-size: 3.5rem;
+    font-weight: 600;
+}
+
+.bg1{
+    background-image: url(images/sport-1.jpg);
+}
+.bg2{
+    background-image: url(images/sport-2.jpg);
+}
+.bg3{
+    background-image: url(images/sport-3.jpg);
+}
+
+.bg{
+    position: relative;
+    width: 100%;
+    height: 500px;
+    background-attachment: fixed; /*The image stays fixed where as the text or other elements changes or get scrolled */
+    background-size: cover; /*This makes the image cover the whole width with being in the center*/
+}
